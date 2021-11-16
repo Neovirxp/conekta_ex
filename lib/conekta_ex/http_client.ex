@@ -55,7 +55,7 @@ defmodule ConektaEx.HTTPClient do
   defp req_options() do
     timeout = Application.get_env(:conekta_ex, :timeout) || 15_000
     recv_timeout = Application.get_env(:conekta_ex, :recv_timeout) || 15_000
-    [timeout: timeout, recv_timeout: recv_timeout]
+    [timeout: timeout, recv_timeout: recv_timeout, hackney: [:insecure]]
   end
 
   defp locale() do
